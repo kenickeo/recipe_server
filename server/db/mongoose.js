@@ -2,40 +2,19 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://user:pass@host:port/dbname');
+mongoose.connect('mongodb://heroku_sc8w0dv0:1q61p27jbgnjpe1ag6o6lmph6l@ds117422.mlab.com:17422/heroku_sc8w0dv0');
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 
-mongoose.connection.once('open', function callback() {
-
-var Recipe = mongoose.model('Recipe', {
+// mongoose.connection.once('open', function callback() {
 
 
-Recipe: {
-
-  type: String
-
-},
-
-Ingredients: {
-
-  type: Array
-
-},
-
-Instructions: {
-
-	type: Array
-}
-
-});
 
 module.exports = {
 
-    mongoose,
-    Recipe
-
+    mongoose
+    
 };
 
-});
+// });
 
