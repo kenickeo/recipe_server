@@ -30,12 +30,12 @@ Instructions: {
 
 });
 
-
-});
-
 module.exports = {
 
     mongoose,
     Recipe
 
 };
+
+});
+
