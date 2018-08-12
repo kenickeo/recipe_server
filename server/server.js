@@ -29,6 +29,7 @@ req.body
 recipe.save().then((response) => {
 
 console.log(response);
+res.send(response);
 
 }, 
 
@@ -45,7 +46,7 @@ app.get('/recipes', (req, res) => {
      
 
 Recipe.find({}).then((response) => {
-   
+  
      var map = {};
 
      response.forEach((item) => {
@@ -55,7 +56,7 @@ Recipe.find({}).then((response) => {
      });
       
 
-
+ console.log(map);
 res.send(map);
 
 }, 
@@ -71,22 +72,26 @@ res.status(500).send(e);
 app.get('/recipes/:id', (req, res) => {
 
 
-Recipe.where({_id: req.params.id}).findOne({Recipe: req.body.Recipe, Ingredients: req.body.Ingredients, Instructions: req.body.Instructions}).then((data) => {
+Recipe.findById( {_id: req.params.id}, (err, data) => {
+
+if(err){
+
+return res.status(500).send(err);
+
+}
 
 
- var map = {};
+ var mapObj = {};
 
-     data.forEach((item) => {
+ mapObj[data._id] = data;
 
-       map[item._id] = item;
-
-     });
-
+    
+console.log(mapObj);
+res.send(mapObj);
 
 
 });
 
-res.send(map);
 
 });
 
