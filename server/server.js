@@ -68,6 +68,20 @@ res.status(500).send(e);
 
 });
 
+app.get('/recipes/:id', (req, res) => {
+
+
+Recipe.where({_id: req.params.id}).findOne({Recipe: req.body.Recipe, Ingredients: req.body.Ingredients, Instructions: req.body.Instructions}).then((data) => {
+
+
+console.log(data);
+
+
+
+});
+
+});
+
 app.put('/recipes/:id', (req, res) => {
 
      
