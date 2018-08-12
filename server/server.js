@@ -74,11 +74,19 @@ app.get('/recipes/:id', (req, res) => {
 Recipe.where({_id: req.params.id}).findOne({Recipe: req.body.Recipe, Ingredients: req.body.Ingredients, Instructions: req.body.Instructions}).then((data) => {
 
 
-console.log(data);
+ var map = {};
+
+     data.forEach((item) => {
+
+       map[item._id] = item;
+
+     });
 
 
 
 });
+
+res.send(map);
 
 });
 
