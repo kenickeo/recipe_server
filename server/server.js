@@ -82,7 +82,7 @@ return res.status(500).send(err);
 
 
  var mapObj = {};
-
+var active = 'active';
  mapObj[active] = data;
 
     
