@@ -114,7 +114,7 @@ app.delete('/recipes/:id', (req, res) => {
 
 Recipe.where({_id: req.params.id}).findOneAndDelete({Recipe: req.body.Recipe, Ingredients: req.body.Ingredients, Instructions: req.body.Instructions}).then((data) => {
 
-console.log(data);
+res.send(data);
 
 
 
