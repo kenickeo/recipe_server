@@ -48,19 +48,20 @@ app.get('/recipes', (req, res) => {
 Recipe.find({}).then((response) => {
   
      var map = {};
-
+ console.log(response[0]);
      response.forEach((item) => {
 
        map[item._id] = item;
-
+ 
      });
       
 
- console.log(map);
 
- if (map == '{}'){
 
-   res.send('null');
+ if (response[0] == undefined){
+   
+   console.log('nothing');
+   res.status(500).send('null');
 
  } else {
 
