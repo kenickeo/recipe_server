@@ -57,7 +57,17 @@ Recipe.find({}).then((response) => {
       
 
  console.log(map);
+
+ if (map == '{}'){
+
+   res.send('null');
+
+ } else {
+
 res.send(map);
+  
+ }
+
 
 }, 
 
