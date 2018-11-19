@@ -61,7 +61,7 @@ Recipe.find({}).then((response) => {
  if (response[0] == undefined){
    
    console.log('nothing');
-   res.status(500).send('null');
+   res.send('null');
 
  } else {
 
