@@ -45,7 +45,7 @@ app.get('/recipes', (req, res) => {
 
      
 
-Recipe.find({}).then((response) => {
+Recipe.find({}).sort( {$natural: 1} ).then((response) => {
   
      var map = {};
  console.log(response[0]);
